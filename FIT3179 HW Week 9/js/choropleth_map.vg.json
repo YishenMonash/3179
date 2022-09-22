@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Populations in Europe Year 2022",
+  "width": 800,
+  "height": 800,
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "js/ne_110m_admin_0_europe.json",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_europe"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "data/europe.csv"
+        },
+        "key": "Country",
+        "fields": ["population_per_sq_km"]
+      }
+    },
+    {"calculate": "datum.population_per_sq_km", "as": "population_per_sq_km"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "population_per_sq_km",
+      "type": "quantitative",
+      "scale": {
+      "type": "threshold",
+      "domain": [20, 50, 100, 200, 400],
+      "range": ["#00b300", "#009a00", "#008000", "#006700", "#004d00", "#003400"]
+      }
+    },
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+      {"field": "population_per_sq_km", "type": "quantitative"}
+    ]
+  }
+}
