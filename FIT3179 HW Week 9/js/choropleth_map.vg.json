@@ -13,7 +13,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "data/europe.csv"
+          "url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20HW%20Week%209/data/europe.csv"
         },
         "key": "Country",
         "fields": ["population_per_sq_km"]
