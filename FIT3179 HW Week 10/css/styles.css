@@ -4,7 +4,7 @@
 
 h1 {
     font-weight: 900;
-    background-color: rgb(192, 163, 0);
+    background-color: orange;
 }
 
 body {
@@ -26,11 +26,11 @@ body {
 .description h2,
 .description h1 {
     margin-top: 0px;
-    background-color: rgb(61, 192, 0);
+    background-color: green;
 }
 
 .description-right {
-    padding-left: 20px;
+    padding-left: 100px;
 }
 
 .description-left {
