@@ -1,0 +1,143 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+  "title": "Correlation between Birth Rate and Death Rate in Europe (2022)",
+  "data": {
+    "url": "data/europe.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 400,
+        "step": 50,
+        "name": "Minimum Population per Square Kilometer: "
+      }
+    },
+    {
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Western Europe",
+          "Eastern Europe",
+          "Southern Europe",
+          "Northern Europe"
+        ],
+        "labels": [
+          "Show All",
+          "Western Europe",
+          "Eastern Europe",
+          "Southern Europe",
+          "Northern Europe"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.birth_rate > 0"},
+    {"filter": "datum.death_rate > 0"},
+    {"filter": "datum.population_per_sq_km > Population_Above"},
+    {
+      "filter": "Region_selection == null || datum.region == Region_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "birth_rate",
+      "type": "quantitative",
+      "title": "Birth Rates",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [6, 20]}
+    },
+    "y": {
+      "field": "death_rate",
+      "type": "quantitative",
+      "title": "Death Rates",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [6, 20]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "population_per_sq_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [100, 200, 300, 400],
+            "range": [50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s", "orient": "left"},
+          "title": "Population per Sq Km"
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Western Europe",
+              "Eastern Europe",
+              "Southern Europe",
+              "Northern Europe"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3"
+            ]
+          },
+          "title": "Region",
+          "legend": {"orient": "left"}
+        },
+        "opacity": {"value": 0.6},
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"field": "birth_rate", "type": "quantitative", "format": ",", "title": "Birth Rate"},
+          {"field": "death_rate", "type": "quantitative", "format": ",", "title": "Death Rate"},
+          {"field": "population_per_sq_km", "type": "quantitative", "format": ",", "title": "Pouplation per Square Km"},
+          {"field": "capital", "type": "nominal", "title": "Capital"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Spain' || datum['Country'] == 'Belgium' || datum['Country'] == 'Iceland' || datum['Country'] == 'Bulgaria' || datum['Country'] == 'Montenegro' || datum['Country'] == 'Netherlands'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"field": "birth_rate", "type": "quantitative", "format": ",", "title": "Birth Rate"},
+          {"field": "death_rate", "type": "quantitative", "format": ",", "title": "Death Rate"},
+          {"field": "population_per_sq_km", "type": "quantitative", "format": ",", "title": "Pouplation per Sq Km"},
+          {"field": "capital", "type": "nominal", "title": "Capital"}
+        ]
+      }
+    }
+  ]
+}
