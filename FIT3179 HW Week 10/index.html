@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+<body>
+
+<div class="page">
+
+   <!-- pure grid group -->
+   <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1>FIT3179 Homework Week 10</h1>
+      <h2>Populations in Europe (2022)</h2>
+    </div>
+  </div>
+<!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="scatter_plot"  class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-right">
+        <h2>Bubble Plot</h2>
+        <p>This bubble plot is to determine the correlation between birth rate and death rate in Europe. We can see that the birth rate and death rate are similar for 
+          each country. It makes sense since the population growth won't drastically increase. 
+        </p>
+      </div>
+    </div>
+
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <h2>Choropleth Map</h2>
+        <p>This choropleth map. It shows the population per square kilometer for each country in Europe. The darker shade of green means
+          that the population per square kilometer is a higher value.
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-2-3">
+      <div id="choropleth_map" class="vis-container"></div>
+    </div>
+</div>
+<!-- end pure grid group -->
+
+
+</div>
+
+
+<script type="text/javascript">
+
+  var spec1 = "js/scatter_plot_interactive.vg.json";
+  var spec2 = "js/choropleth_map.vg.json";
+
+  vegaEmbed('#scatter_plot', spec1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#choropleth_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>
