@@ -30,7 +30,8 @@ body {
 }
 
 .description-right {
-    padding-left: 100px;
+    padding-left: 10px;
+    padding-right: 50px;
 }
 
 .description-left {
