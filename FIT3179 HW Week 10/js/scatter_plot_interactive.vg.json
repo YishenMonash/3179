@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 400,
-  "title": "Correlation between Birth Rate and Death Rate in Europe (2022)"
+  "title": "Correlation between Birth Rate and Death Rate in Europe (2022)",
   "data": {
     "url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20HW%20Week%2010/data/europe.csv"
   },
