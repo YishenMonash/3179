@@ -62,7 +62,7 @@
               "field": "population_per_sq_km",
               "type": "quantitative",
               "format": ".2f",
-              "title": "Population per Square Kilometer"
+              "title": "Population per Sq Km"
             }
           ]
         }
