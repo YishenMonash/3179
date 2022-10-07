@@ -3,7 +3,7 @@
   "width": 400,
   "height": 400,
   "data": {
-    "url": "data/europe.csv"
+    "url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20HW%20Week%2010/data/europe.csv"
   },
   "params": [
     {
