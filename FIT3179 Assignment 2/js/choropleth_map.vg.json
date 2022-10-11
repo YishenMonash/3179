@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 570,
+  "height": 300,
+  "background": "#eeeeee",
+  "params": [
+    {
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [null,"Western Europe","Eastern Europe","Southern Europe","Northern Europe"],
+        "labels": ["Show All","Western Europe","Eastern Europe","Southern Europe","Northern Europe"],
+        "name": "Region: "
+      }
+    },
+    {
+      "name": "Year_selection",
+      "value": 2008,
+      "bind": {"input": "range", "min": 2000,"max": 2016,"step": 1,"name": "Year: "}
+    }
+  ],
+  "projection": {
+    "type": "equirectangular",
+    "center": [9.2551,53.5260],
+    "scale": 490
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "/js/ne_1.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "'Data is not available in ' + datum.properties.NAME",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ddd",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "js/ne_1.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_ocean"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "skyblue"
+      }
+    },
+    {
+      "data": {
+        "url": "data/FIT3179_A2_Countries.csv"
+      },
+      "transform": [
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "url": "/js/ne_1.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_110m_admin_0_countries"
+              }
+            },
+            "key": "properties.NAME"
+          },
+          "as": "geo"
+        },
+        {"filter": "datum.year == Year_selection"},
+        {"filter": "Region_selection == null || datum.region == Region_selection"}
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#fff",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "suicide_rate",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [5,10,15,20,25],
+            "range": ["#ffc100","#ff9a00","#ff7400","#ff4d00","#ff0000","#990000"]
+          },
+          "title": "Suicide Rate",
+          "legend": {"orient": "bottom-left", "direction": "vertical", "type": "gradient", "gradientLength": 100}
+        },
+        "tooltip": [
+          {"field": "country","type": "nominal","title": "Country"},
+          {"field": "suicide_rate","type": "quantitative","title": "Suicide Rate","format": ".2f"},
+          {"field": "population","type": "quantitative","title": "Population"},
+          {"field": "year","type": "nominal","title": "Year"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
