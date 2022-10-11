@@ -1,0 +1,70 @@
+.body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.h1 {
+    font-weight: 900;
+    background-color: #FFA500;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.page {
+    width: 850px;
+    background-color: #eeeeee;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.description h2,
+.description h1 {
+    margin-top: 0px;
+    background-color: #FFA500;
+}
+
+.gender-male h2 {
+    margin-top: 0px;
+    background-color: #00aeff;
+}
+
+.gender-female h2 {
+    margin-top: 0px;
+    background-color: #e700fc;
+}
+
+.description-right {
+    padding-left: 20px;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
+.pure-g {
+    margin-bottom: 25px;
+}
+
+.small-font {
+    font-size: 14px;
+}
+
+.vega-bindings{
+    display: flex;
+  }
+
+hr {
+    width: 95%;
+    height: 5px;
+    visibility: visible;
+    opacity: 60%;
+    border: #22a0a0;
+    color: #25a4a8;
+    border-bottom: 3px solid #17b4b4;
+}

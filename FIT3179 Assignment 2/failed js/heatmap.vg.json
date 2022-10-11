@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/FIT3179_A2_Countries.csv"},
+    "transform": [{
+      "filter": {"and": [
+        {"field": "HDI_for_year", "valid": true},
+        {"field": "suicide_rate", "valid": true}
+      ]}
+    }],
+    "mark": "rect",
+    "width": 300,
+    "height": 200,
+    "encoding": {
+      "x": {
+        "bin": {"maxbins":60},
+        "field": "HDI_for_year",
+        "type": "quantitative"
+      },
+      "y": {
+        "bin": {"maxbins": 40},
+        "field": "suicide_rate",
+        "type": "quantitative"
+      },
+      "color": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }

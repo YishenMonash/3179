@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/suicide_generation.csv"
+    },
+    "width": 400,
+    "height": 300,
+    "layer": [
+      {
+        "encoding": {
+          "x": {"field": "year", "type": "ordinal"},
+          "y": {"field": "suicide_rate", "type": "quantitative"},
+          "color": {"field": "generation", 
+          "type": "nominal",
+      "scale": {"range": ["#1E90FF", "#FFFF00", "#FF69B4", "#FF0000", "#006400", "#9400D3"]},
+        "title": "Generation"}
+        },
+        "layer": [
+          {"mark": "line"},
+          {
+            "params": [{
+              "name": "label",
+              "select": {
+                "type": "point",
+                "encodings": ["x"],
+                "nearest": true,
+                "on": "mouseover"
+              }
+            }],
+            "mark": "point",
+            "encoding": {
+              "opacity": {
+                "condition": {
+                  "param": "label",
+                  "empty": false,
+                  "value": 1
+                },
+                "value": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "transform": [{"filter": {"param": "label", "empty": false}}],
+        "layer": [
+          {
+            "mark": {"type": "rule", "color": "gray"},
+            "encoding": {
+              "x": {"type": "ordinal", "field": "year", "aggregate": "min", "title": "Year"}
+            }
+          },
+          {
+            "encoding": {
+              "text": {"type": "quantitative", "field": "suicide_rate", "format": ".2f"},
+              "x": {"type": "ordinal", "field": "year"},
+              "y": {"type": "quantitative", "field": "suicide_rate", "title": "Suicide Rate"}
+            },
+            "layer": [
+              {
+                "mark": {
+                  "type": "text",
+                  "stroke": "white",
+                  "strokeWidth": 2,
+                  "align": "left",
+                  "dx": 5,
+                  "dy": -5
+                }
+              },
+              {
+                "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
+                "encoding": {
+                  "color": {"type": "nominal", "field": "generation"}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

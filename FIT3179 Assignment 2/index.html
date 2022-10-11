@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="pure-g">
+     <div class="pure-u-1-1">
+       <h1><center>Suicide Rate in Europe (2000-2016)</center></h1>
+     </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-3 introduction">
+        <div class="introduction">
+          <h2>Introduction</h2>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="pure-g">
+      <div class="pure-u-1-3 summary">
+        <div class="summary">
+          <p>summary 1. random text random text random text random text random text random text random text random text random text random text 
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3 summary">
+        <div class="summary">
+          <p>summary 2. random text random text random text random text random text random text random text random text random text random text 
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3 summary">
+        <div class="summary">
+          <p>summary 3. random text random text random text random text random text random text random text random text random text random text 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <h2>Choropleth Map</h2>
+        <p>This choropleth map. It shows the suicide rate per 100k population for each country in Europe. The darker shade of red means
+          that the suicide rate is a higher value.
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-2-3">
+      <div id="choropleth_map" class="vis-container"></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="scatterplot"  class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-right">
+        <h2>Bubble Plot</h2>
+        <p>This bubble plot is to determine the correlation between suicide rate and gdp per capita in Europe.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="stacked_area"  class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-3">
+      <div id="normalized_bar"  class="vis-container"></div>
+      </div>
+  </div>
+
+
+  <div class="pure-g">
+    <div class="pure-u-1-3 gender-male">
+      <div class="gender-male">
+        <h2>Comparing 2 genders</h2>
+        <p>Comparison
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1-3 gender-female">
+      <div class="gender-female">
+        <h2>.</h2>
+        <p>Extra findings on the comparison
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1-3 gender-male">
+      <div class="gender-male">
+        <h2>.</h2>
+        <p>Extra findings on the comparison
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="line_donut"  class="vis-container"></div>
+    </div>
+  </div>
+
+  <hr>
+
+<script type="text/javascript">
+
+  var spec1 = "js/choropleth_map.vg.json";
+  var spec2 = "js/scatterplot.vg.json";
+  var spec3 = "js/stacked_area.vg.json";
+  var spec4 = "js/normalized_bar.vg.json";
+  var spec5 = "js/line_donut.vg.json";
+
+  vegaEmbed('#choropleth_map', spec1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#scatterplot', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#stacked_area', spec3).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#normalized_bar', spec4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#line_donut', spec5).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>
