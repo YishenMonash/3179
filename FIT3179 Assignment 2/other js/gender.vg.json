@@ -1,0 +1,130 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Gender",
+    "data": {
+      "url": "data/suicide_trend_sex.csv"
+    },
+    "hconcat": [{    
+        "data": {"url": "data/suicide_trend_sex.csv"},
+        "transform": [
+          {"calculate": "datum.sex == 'male' ? 'Male' : 'Female'", "as": "gender"}
+        ],
+        "layer": [
+          {
+            "params": 
+            [
+              {
+                "name": "area_highlight",
+                "select": {"type": "point", "on": "mouseover"}
+              },
+              {"name": "gender_sel", "select": {"type": "point", "fields": ["gender"]}}
+            ],
+            "mark": {"opacity": 0.7, "type": "area", "line": true},
+            "encoding": {
+              "y": {"aggregate": "sum", "field": "suicides_no", "type": "quantitative", "title": "Suicide Numbers"},
+              "x": {"field": "year", "type": "nominal", "title": "Year"},
+              "color": {
+                "field": "gender",
+                "scale": {"range": ["#FFC0CB", "#ADD8E6"]},
+                "type": "nominal", 
+                "title": "Gender"
+              },
+              "fillOpacity": {
+                "condition": {"param": "gender_sel", "value": 1},
+                "value": 0.3
+              },   
+              "strokeWidth": {
+                "condition": [
+                  {
+                    "param": "gender_sel",
+                    "empty": false,
+                    "value": 2
+                  },
+                  {
+                    "param": "area_highlight",
+                    "empty": false,
+                    "value": 1
+                  }
+                ],
+                "value": 0
+              },
+              "tooltip": [
+                  {"field": "year", "type": "nominal", "title": "Year"},
+                  {"field": "sex", "type": "nominal", "title": "Gender"},
+                  {"field": "suicides_no", "type": "quantitative", "format": ".0f", "title": "Suicide Numbers"}
+                ]
+            }
+          },
+          {
+            "transform": [
+            {
+            "aggregate": [{"op": "sum", "field": "suicides_no", "as": "total"}],
+            "groupby": ["year"]
+            }
+            ],
+            "mark": {"type": "line", "point": true},
+            "encoding": {
+              "y": {
+                "field": "total",
+                "type": "quantitative"
+              },
+              "x": {"field": "year", "type": "nominal"},
+              "color": {
+                "value": "#CBC3E3"
+              },
+              "opacity": {
+                "condition": {"param": "gender_sel", "value": 1},
+                "value": 0.3
+              },
+                "tooltip": [
+                    {"field": "year", "type": "nominal", "title": "Year"},
+                    {"field": "total", "type": "quantitative", "format": ".0f",  "title": "Total Suicide Numbers"}
+                  ]
+            }
+          }
+        ]
+    },
+    {
+    "data": {"url": "data/suicide_trend_sex.csv"},
+    "transform": [
+    {"calculate": "datum.sex == 'female' ? 'Female' : 'Male'", "as": "gender"},
+    {
+        "joinaggregate": [{"op": "sum", "field": "suicides_no", "as": "total"}],
+        "groupby": ["year"]
+    },
+    {"calculate": "datum.suicides_no / datum.total", "as": "fraction"}
+    ],
+    "encoding": {
+    "x": {
+        "aggregate": "sum",
+        "field": "suicides_no",
+        "title": "Suicide Numbers Percentage",
+        "stack": "normalize",
+        "axis": null
+    },
+    "order": {"field": "gender", "sort": "descending", "title": "Gender"},
+    "y": {"field": "year", "type": "ordinal","title": "Year", "axis": {"orient": "right"}},
+    "color": {
+        "field": "gender",
+        "type": "nominal",
+        "scale": {"range": ["#FFC0CB", "#ADD8E6"]},
+        "title": "Gender"
+    },
+    "tooltip": [
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"field": "suicides_no", "type": "quantitative", "format": ".2f",  "title": "Suicide Number"},
+        {"field": "gender", "type": "nominal", "title": "Gender"}
+    ]
+    },
+    "layer": [
+    {"mark": "bar"},
+    {
+        "mark": {"type": "text", "dx": -20, "dy": 0, "angle": 0},
+        "encoding": {
+        "color": {"value": "grey"},
+        "text": {"field": "fraction", "type": "quantitative", "format": ".1%"}
+        }
+    }
+    ]
+    }]
+}

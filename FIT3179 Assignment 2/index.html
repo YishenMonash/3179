@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="pure-g">
+     <div class="pure-u-1-1">
+       <h1 class="main-title" style="font-family: 'Garamond'; font-size: 60px;"></h1class><center><span style="color:red;"><strong>Suicide Rate</strong></span> in Europe <br> 2000 - 2016</center></h1>
+     </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-3 summary">
+        <div class="summary" style="width: 80%; text-align: center; font-size: 16px; font-family: 'Garamond'">
+          <p><span class="suicide"><strong>Suicide</strong></span> is a death that is caused by a person <strong> injuring</strong> and <strong> hurting</strong> themselves. Reasons could range from 
+            depression, drug overdose to physical abuse. Bonding and connecting with a person can help prevent and improve their mental health condition.
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3 summary">
+        <div class="summary" style="width: 80%; text-align: center; font-size: 16px; font-family: 'Garamond'">
+          <p><span class="suicide"><strong>Suicide</strong></span> is heavily focused and emphasized on today's generation as the number of <span class="suicide"><strong>suicide rate</strong></span>
+            is drastically increasing through out the years. <a href="https://www.healthdata.org/research-article/global-regional-and-national-age-sex-specific-mortality-282-causes-death-195" >The World Health Organization (WHO)</a>
+            study estimates every year, nearly 800,000 people <strong>dies</strong> from <span class="suicide"><strong>suicides</strong></span>.
+            
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3 summary">
+        <div class="summary" style="width: 80%; text-align: center; font-size: 16px; font-family: 'Garamond'">
+          <p>In this visualation we will be looking through some data to help us understand more on how imporntant and <strong>serious</strong> this issue is.
+            <strong>If you are currently dealing with any suicidal thoughts please do contact;</strong> <br><a href="https://support.google.com/websearch/answer/11181469"><span class="phone-number"><strong>03-76272929</strong></span></a>  <strong>in Malaysia</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <hr>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1 class="choropleth-title" style="font-size: 40px; font-family: 'Garamond';"></h1class><span style="color:red;">Suicide Rate</span> across Europe</h1>
+      </div>
+     </div>
+
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description choropleth" style="font-size: 20px; font-family: 'Garamond'">
+        <p>This map of <strong>Europe</strong> shows us the each year's <span class="suicide"><strong>suicide rate</strong></span> which is <u><strong>suicide per 100k population</strong></u>
+          some of the countries with a darker shade of <span style="color:#990000;"><strong>red</strong></span> represent a high <span class="suicide"><strong>suicide rate</strong></span>
+          in that country.
+          <br><br> From the map we can see that the <span style="color:#984ea3;"><strong>Eastern side of Europe</strong></span> has a higher <span class="suicide"><strong>suicide rate</strong></span>
+           compared to the other regions in Europe.
+
+           <br><br><span class="note"><i>(Note: Year 2016 data isn't completed. Data missing in some countries)</i></span>
+          
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-2-3">
+      <div id="choropleth_map" class="vis-container"></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1 class="bubble-title" style="font-size: 40px; font-family: 'Garamond';"></h1class>Correlation Between <span style="color:red;">Suicide Rate</span> and GDP per Capita</h1>
+    </div>
+   </div>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="scatterplot"  class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description bubble" style="font-size: 20px; font-family: 'Garamond'">
+        <p>A bubble chart is used to determine if there is any correlation between <span style="color:red;"><strong>suicide rate</strong></span> and <strong>GDP per Capita</strong>. 
+          As you can see from the chart on the left, there is a correlation as the higher the <strong>GDP per Capita</strong>, the <span style="color:red;"><strong>suicide rate</strong></span>
+          tend to be lower. Reasons could be people in those countries are more financially stable and don't have to stress about surviving day-to-day. 
+          <br><br>
+          Countries from the <span style="color: #6F98AD;"><strong>Northern side of Europe</strong></span> tend to have lower average of <span style="color:red;"><strong>suicide rate</strong></span> and higher average of <strong>GDP per Capita</strong>.
+          Although countries from the <span style="color: #6F98AD;"><strong>North</strong></span> have a <strong>lower population</strong> count compared to the other regions. 
+          <span style="color: #6F98AD;"><strong>Lithuania</strong></span> in the year <strong>2000</strong> has the <span style="color:red;"><strong>highest suicide rate</strong></span> 
+          with a total of <strong><u>47.65</u></strong>.
+
+          <br><br><span class="note"><i>(Note: There are many interactive features in the bubble chart. The legend of the regions are interactive as well!)</i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1 class="gender-title" style="font-size: 40px; font-family: 'Garamond';"></h1class>Difference between 2 <span style="color:#0000ff;"><strong>Gen</strong></span><span style="color:#e5acb6;"><strong>ders</strong></span></h1>
+    </div>
+   </div>
+
+  <div class="outer">
+    <div class="top"> 
+      <div id="stacked_area"  class="vis-container"></div>
+    </div>
+    <div class="bar"> 
+      <div id="normalized_bar"  class="vis-container"></div>
+    </div>
+    <div class="description gender" style="width: 90%; text-align: left; font-size: 20px; font-family: 'Garamond'"> 
+      <p><span style="color:red;"><strong>Suicides</strong></span> are more common amongst <span style="color:#0000ff;"><strong>men</strong></span> compare to <span style="color:#e5acb6;"><strong>women</strong></span>. 
+        From the <i>normalized bar chart</i> on the right we can see that the <strong>percentage</strong> of <span style="color:red;"><strong>suicides</strong></span> in each year is dominated by <span style="color:#0000ff;"><strong>men</strong></span> from the numbers.
+        Each year the ratio between both genders and relatively the same.
+        <br><br> From the <i>area chart</i> above, we can see that the trend of <span style="color:red;"><strong>suicide rate</strong></span> throughout the years doesn't differ to much, but we do see that there is a slight decrease.
+        The peak <span style="color:red;"><strong>suicide rate</strong></span> is in the year <strong>2000</strong> with a value of <strong><u>37.53</u></strong>. It is also the highest value
+        for both men and female with <span style="color:#e5acb6;"><strong><u>7.50</u></strong></span> and <span style="color:#0000ff;"><strong><u>30.03</u></strong></span> respectively.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1 class="generation-title" style="font-size: 40px; font-family: 'Garamond';"></h1class>Comparison between <span style="color:#1E90FF;"><strong>Ge</strong></span><span style="color:#d68a0f;"><strong>ne</strong></span><span style="color:#FF69B4;"><strong>ra</strong></span><span style="color:#FF0000;"><strong>ti</strong></span><span style="color:#8B8000;"><strong>on</strong></span><span style="color:#9400D3;"><strong>s</strong></span></h1>
+    </div>
+   </div>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="line_donut"  class="vis-container"></div>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <div class="pure-u-1-3 summary">
+      <div class="description generation" style="width: 80%; text-align: center; font-size: 20px; font-family: 'Garamond'">
+        <p>From the <i>line chart</i> we can see that the older <strong>generations</strong> has a higher <span style="color:red;"><strong>suicide rate</strong></span> compared to the younger
+          <strong>generations</strong>. Although we know that in this day of age the younger generation face more <u>mental health issues</u>.
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1-3 summary">
+      <div class="description generation" style="width: 80%; text-align: center; font-size: 20px; font-family: 'Garamond'">
+        <p>We do have to note that the older generations such as <span style="color:#1E90FF;"><strong>Boomer</strong></span>, <span style="color:#9400D3;"><strong>Silent</strong></span> 
+          and the <span style="color:#d68a0f;"><strong>G.I Generations</strong></span> have gone through <span style="color:red">world wars</span> and that plays a <span style="font-size:larger"><strong>big</strong></span> 
+          factor into numbers of death from <span style="color:red;"><strong>suicides</strong></span>.
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1-3 summary">
+      <div class="description generation" style="width: 80%; text-align: center; font-size: 20px; font-family: 'Garamond'">
+        <p><span style="color:#d68a0f;"><strong>G.I Generations</strong></span> only shows up
+        in the year <strong>2000</strong> as they have past the average life expectancy of <strong><i></i>80 years old</strong> after the year <strong>2000</strong>. 
+        <span style="color:#1E90FF;"><strong>Boomer</strong></span> shows the most suicide numbers as shown in the <i>donut chart</i> above.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+
+  <header style="color: #092215;">
+    <p class="bodytext" style="text-align: left; font-family: 'Garamond'">Visualisation by Yishen Wong</p>
+    <p class="bodytext" style="text-align: left; font-family: 'Garamond'">
+      <a href="https://www.kaggle.com/datasets/russellyates88/suicide-rates-overview-1985-to-2016" >Data sourced from kaggle username: Rusty</a>
+    </p>
+
+</header>
+  
+
+<script type="text/javascript">
+
+  var spec1 = "js/choropleth_map.vg.json";
+  var spec2 = "js/scatterplot.vg.json";
+  var spec3 = "js/stacked_area.vg.json";
+  var spec4 = "js/normalized_bar.vg.json";
+  var spec5 = "js/line_donut.vg.json";
+
+  vegaEmbed('#choropleth_map', spec1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#scatterplot', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#stacked_area', spec3).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#normalized_bar', spec4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#line_donut', spec5).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/suicide_trend_sex.csv"},
+  "background": "#eeeeee",
+  "width": 300,
+  "height": 800,
+  "transform": [
+  {"calculate": "datum.sex == 'female' ? 'Female' : 'Male'", "as": "gender"},
+  {
+    "joinaggregate": [{"op": "sum", "field": "suicides_no", "as": "total"}],
+    "groupby": ["year"]
+  },
+  {"calculate": "datum.suicides_no / datum.total", "as": "fraction"}
+  ],
+  "encoding": {
+  "x": {
+      "aggregate": "sum",
+      "field": "suicides_no",
+      "title": "Suicide Numbers Percentage",
+      "stack": "normalize",
+      "axis": null
+  },
+  "order": {"field": "gender", "sort": "descending", "title": "Gender"},
+  "y": {"field": "year", "type": "ordinal", "sort": "descending","title": "Year", "axis": {"orient": "left", "domain": false, "grid": false, "ticks": false, "labelFontSize": 16, "titleFontSize": 16}},
+  "color": {
+      "field": "gender",
+      "type": "nominal",
+      "scale": {"range": ["#FFC0CB", "#ADD8E6"]},
+      "title": "Gender",
+      "legend": {"orient": "top", "padding": 0, "title": null, "offset": 10, "labelAlign": "left", "labelFontSize": 16}
+  },
+  "tooltip": [
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "gender", "type": "nominal", "title": "Gender"},
+      {"field": "suicides_no", "type": "quantitative", "format": ".2f",  "title": "Suicide Number"},
+      {"field": "fraction", "type": "quantitative", "format": ".1%",  "title": "Percentage"}
+  ]
+  },
+  "layer": [
+  {"mark": "bar"},
+    {
+      "mark": {"type": "text", "dx": -25, "dy": 0, "angle": 0, "fontSize": 16},
+      "encoding": {
+      "color": {"value": "grey"},
+      "text": {"field": "fraction", "type": "quantitative", "format": ".1%"}
+      }
+    }
+  ]
+}

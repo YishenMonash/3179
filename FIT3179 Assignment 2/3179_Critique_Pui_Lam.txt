@@ -1,0 +1,6 @@
+1. Layout can be organized
+2. legend on life expectancy for choropleth map can be improved
+3. color consistency
+4. a lot of white spaces
+5. short forms are used
+6. life expectancy rank after 100 rank it is hard to see the countries
