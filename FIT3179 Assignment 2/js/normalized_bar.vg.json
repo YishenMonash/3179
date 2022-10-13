@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "data/suicide_trend_sex.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20Assignment%202/data/suicide_trend_sex.csv"},
   "background": "#eeeeee",
   "width": 300,
   "height": 800,
