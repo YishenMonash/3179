@@ -3,7 +3,7 @@
     "background": "#eeeeee",
     "width": 600,
     "height": 400,
-    "data": {"url": "data/suicide_trend_sex.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20Assignment%202/data/suicide_trend_sex.csv"},
     "transform": [
       {"calculate": "datum.sex == 'male' ? 'Male' : 'Female'", "as": "gender"}
     ],
