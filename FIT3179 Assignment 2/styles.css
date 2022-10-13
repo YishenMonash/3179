@@ -1,0 +1,93 @@
+.page {
+    font-family: 'Garamond', sans-serif ;
+    width: 1100px;
+    background-color: #eeeeee;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+.pure-g {
+    margin-bottom: 25px;
+}
+
+.body {
+    font-family: 'Garamond', sans-serif ;
+}
+
+.main-title, .choropleth-title, .bubble-title, .gender-title, .generation-title{
+    font-weight: normal;
+}
+
+.note {
+    font-size: medium;
+}
+
+.choropleth {
+    padding-right: 20px;
+}
+
+.bubble{
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+.gender{
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+.suicide{
+    color: red;
+    font-size: larger;
+}
+
+.suicide1{
+    font-size: large;
+}
+
+.phone-number{
+    color: darkblue;
+    font-size: x-large;
+}
+
+.red_text{
+    color: red;
+    font-size: large;
+}
+
+.vis-container {
+    width: 100%;
+    height: 100%;
+}
+
+.vega-bindings{
+    display: flex;
+  }
+
+hr {
+    width: 90%;
+    height: 5px;
+    visibility: visible;
+    opacity: 60%;
+    border: #22a0a0;
+    color: #25a4a8;
+    border-bottom: 3px solid #17b4b4;
+}
+
+.outer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .outer > div {
+    background-color: #eeeeee;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .outer .bar {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1; 
+    grid-column-end: 2;
+  }
