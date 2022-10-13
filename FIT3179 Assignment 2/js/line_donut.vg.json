@@ -1,12 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "data/suicide_generation.csv"
+      "url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20Assignment%202/data/suicide_generation.csv"
     },
     "background": "#eeeeee",
     "hconcat": [{
       "data": {
-          "url": "data/suicide_generation.csv"
+          "url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20Assignment%202/data/suicide_generation.csv"
         },
         "width": 750,
         "height": 350,
@@ -132,7 +132,7 @@
     {
       "width": 320,
       "height": 320,
-      "data": {"url": "data/suicide_generation.csv"},
+      "data": {"url": "https://raw.githubusercontent.com/YishenMonash/3179/main/FIT3179%20Assignment%202/data/suicide_generation.csv"},
       "transform": [
         {
           "aggregate": [{"op": "sum", "field": "suicides_no", "as": "total"}],
