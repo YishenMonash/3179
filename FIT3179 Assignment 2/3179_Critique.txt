@@ -1,8 +1,0 @@
-Critique on Pui Lum Leong:
-
-1. The overall layout can be more organized and symmetric to fit the viewers eyes.
-2. There is a lot of white space. It can be reduced by putting charts closer together or fill it with something else.
-3. Legend on the choropleth map can be improved with different colors and number labelled can also be more clearer.
-4. The color on charts should be consistent for bubble chart and diverging bar chart.
-5. Short forms are used such as (vs) in the titles.
-6. The ranking of life expectancy can be improved as it is hard to see the labelled countries after adjusting the filter.
