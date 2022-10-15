@@ -76,7 +76,7 @@
         }
       },
       {
-        "mark": {"type": "text", "dx":70,"dy": -160, "fontSize": 16, "opacity": 0.5},
+        "mark": {"type": "text", "dx":70,"dy": -160, "fontSize": 16, "opacity": 0.5, "fontWeight": "lighter"},
         "transform": [
           {
             "calculate": "'Suicide Rate of          heavily outweighs'",
@@ -89,7 +89,7 @@
         }
       },
       {
-        "mark": {"type": "text", "dx":62,"dy": -160, "fontSize": 16, "opacity": 0.5},
+        "mark": {"type": "text", "dx":62,"dy": -160, "fontSize": 16, "opacity": 0.5, "fontWeight": "lighter"},
         "transform": [
           {
             "calculate": "'Male'",
@@ -102,7 +102,7 @@
         }
       },
       {
-        "mark": {"type": "text", "dx":240,"dy": -160, "fontSize": 16, "opacity": 0.5},
+        "mark": {"type": "text", "dx":240,"dy": -160, "fontSize": 16, "opacity": 0.5, "fontWeight": "lighter"},
         "transform": [
           {
             "calculate": "'Female'",
