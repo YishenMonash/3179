@@ -102,7 +102,7 @@
             ]
           },
           {
-            "mark": {"type": "text", "dx": -100,"dy": -120, "fontSize": 16},
+            "mark": {"type": "text", "dx": -100,"dy": -120, "fontSize": 16, "fontWeight": "lighter"},
             "transform": [
               {
                 "calculate": "'G.I Generation has the highest suicide rate in a year with'",
@@ -115,7 +115,7 @@
             }
           },
           {
-            "mark": {"type": "text", "dx": 127,"dy": -120, "fontSize": 16},
+            "mark": {"type": "text", "dx": 127,"dy": -120, "fontSize": 16, "fontWeight": "lighter"},
             "transform": [
               {
                 "calculate": "'35.01'",
@@ -179,7 +179,7 @@
         }
       },
       {
-        "mark": {"type": "text", "radius": 150, "fontSize": 16},
+        "mark": {"type": "text", "radius": 150, "fontSize": 16, "fontWeight": "lighter"},
         "encoding": {
           "text": {"field": "total", "type": "quantitative", "format": ".0f"}
         }
@@ -198,7 +198,7 @@
         }
       },
       {
-        "mark": {"type": "text", "radius": 0, "dy": 30, "fontSize": 16},
+        "mark": {"type": "text", "radius": 0, "dy": 30, "fontSize": 16, "fontWeight": "lighter"},
         "transform": [
           {
             "calculate": "'9255'",
