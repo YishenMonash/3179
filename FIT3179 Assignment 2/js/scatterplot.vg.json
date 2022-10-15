@@ -114,7 +114,7 @@
         }
         },
         {
-            "mark": {"type": "text", "dx":225,"dy": -160, "fontSize": 16, "opacity": 0.5},
+            "mark": {"type": "text", "dx":225,"dy": -160, "fontSize": 16, "opacity": 0.5, "fontWeight": "lighter"},
             "transform": [
               {
                 "calculate": "'Lithuania'",
@@ -127,7 +127,7 @@
             }
         },
         {
-            "mark": {"type": "text", "dx":70,"dy": -160, "fontSize": 16, "opacity": 0.5},
+            "mark": {"type": "text", "dx":70,"dy": -160, "fontSize": 16, "opacity": 0.5, "fontWeight": "lighter"},
             "transform": [
               {
                 "calculate": "'Highest average of Suicide Rate: '",
